@@ -1,0 +1,45 @@
+<%= form_for @user do |f| %>
+	<% if @user.errors.any? %>
+		<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+		<ul>
+			<% @user.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+		</ul>
+	<% end %>
+	
+	<%= f.label :email, 'Email:' %>
+	<%= f.text_field :email, :placeholder => "example@example.com" %><br>
+	<%= f.label :username, 'Username:' %>
+	<%= f.text_field :username %><br>
+	<%= f.label :password, 'Password:' %>
+	<%= f.password_field :password %><br>
+	<%= f.submit %>
+<% end %>
+
+
+
+<!--
+<%= form_tag '/users' %>
+<%= label_tag 'email' %>
+<%= text_field_tag 'email' %><br>
+<%= label_tag 'username' %>
+<%= text_field_tag 'username' %><br>
+<%= label_tag 'password' %>
+<%= password_field_tag 'password' %><br>
+<%= submit_tag 'Submit' %>
+-->
+
+
+
+<!--<form method="POST" action="/users" accept-charset="UTF-8">
+	<label for="email">Email:</label>
+	<input type="text" name="user[email]" id="email"><br>
+	<label for="username">Username:</label>
+	<input type="text" name="user[username]" id="username"><br>
+	<label for="password">Password:</label>
+	<input type="password" name="user[password]" id="password"><br>
+	<input type="submit" value="Submit">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+</form> -->
